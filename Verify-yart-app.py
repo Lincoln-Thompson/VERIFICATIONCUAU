@@ -102,7 +102,7 @@ st.markdown("---")  # separator line
 # -----------------------------
 # Input Form
 # -----------------------------
-code_from_url = st.query_params.get("code", [""])[0]
+code_from_url = st.query_params.get("code", [""])
 
 with st.container():
     user_input = st.text_input(
@@ -148,5 +148,6 @@ if submitted:
 # -----------------------------
 st.markdown("---")
 st.markdown('<p class="footer-text">Powered by CUAU Verification System</p>', unsafe_allow_html=True)
+
 
 
