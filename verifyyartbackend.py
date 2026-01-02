@@ -2,6 +2,7 @@ from web3 import Web3
 from cryptography.fernet import Fernet
 import sys
 import time
+import streamlit as st
 def decrypt(key):
     key=key.encode('utf-8')
     with open(r'stuff.txt','rb') as doc:
@@ -12,7 +13,7 @@ def decrypt(key):
     return decrypted_message
 
 w3 = Web3(Web3.HTTPProvider('https://ethereum-sepolia-rpc.publicnode.com'))
-pkey=decrypt(input('Enter key to start program:'))
+pkey=st.secrets['PKEY']
 account = w3.eth.account.from_key(pkey)
 senderaddress=account.address
 
@@ -44,4 +45,5 @@ def verifytag(stringtobeverified):
     result=tokencontract.functions.getTag(b32).call()
     result.append(result0)
     return result
+
 
