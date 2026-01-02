@@ -4,7 +4,7 @@ import sys
 import time
 def decrypt(key):
     key=key.encode('utf-8')
-    with open(r'C:\Users\lbolt\OneDrive\Desktop\STABLECu\ECONOMICS\docfororacle.txt','rb') as doc:
+    with open(r'stuff.txt','rb') as doc:
         encrypted_message=doc.read()
 
     fernet = Fernet(key)
@@ -44,3 +44,4 @@ def verifytag(stringtobeverified):
     result=tokencontract.functions.getTag(b32).call()
     result.append(result0)
     return result
+
