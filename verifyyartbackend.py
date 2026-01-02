@@ -13,7 +13,7 @@ def decrypt(key):
     return decrypted_message
 
 w3 = Web3(Web3.HTTPProvider('https://ethereum-sepolia-rpc.publicnode.com'))
-pkey=st.secrets['PKEY']
+pkey=st.secrets['wallet']['PKEY']
 account = w3.eth.account.from_key(pkey)
 senderaddress=account.address
 
@@ -45,5 +45,6 @@ def verifytag(stringtobeverified):
     result=tokencontract.functions.getTag(b32).call()
     result.append(result0)
     return result
+
 
 
