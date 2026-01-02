@@ -39,7 +39,7 @@ st.markdown("<p style='text-align:center; color:#DBDDD2;'>Enter your product cod
 
 st.markdown("---")  # separator line
 #query_params = st.experimental_get_query_params()
-code_from_url = st.query_params.get("code", [""])[0]
+code_from_url = st.query_params.get("code", [""])
 # -----------------------------
 # Input Form
 # -----------------------------
@@ -87,4 +87,5 @@ if submitted:
 # -----------------------------
 st.markdown("---")
 st.markdown("<p style='text-align:center; color:#95A5A6; font-size:0.9rem;'>Powered by CUAU Verification System</p>", unsafe_allow_html=True)
+
 
