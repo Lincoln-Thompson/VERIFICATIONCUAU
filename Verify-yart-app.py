@@ -130,7 +130,7 @@ if submitted:
             # Already verified
             elif veracity[3] == veracity[4][3] and veracity[3] == True:
                 with st.container():
-                    st.info(f" Your **{veracity[1]}** has been previously checked.", icon="ℹ️")
+                    st.info(f" Your **{veracity[1]}** verified, but has been previously checked.", icon="ℹ️")
 
             # False code
             elif veracity[2] == False:
@@ -148,6 +148,7 @@ if submitted:
 # -----------------------------
 st.markdown("---")
 st.markdown('<p class="footer-text">Powered by CUAU Verification System</p>', unsafe_allow_html=True)
+
 
 
 
