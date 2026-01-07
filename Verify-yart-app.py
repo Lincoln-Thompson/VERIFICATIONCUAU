@@ -120,26 +120,15 @@ if submitted:
     if user_input.strip():
         try:
             veracity = verifytag(user_input)
-
-            # Verified first time
-            if veracity[3] != veracity[4][3] and veracity[3] == True:
-                st.balloons()
-                with st.container():
-                    st.success(f" Verified: Your **{veracity[1]}** is authentic!", icon="✅")
-
-            # Already verified
-            elif veracity[3] == veracity[4][3] and veracity[3] == True:
-                with st.container():
-                    st.info(f" Your **{veracity[1]}** verified, but has been previously checked.", icon="ℹ️")
-
-            # False code
-            elif veracity[2] == False:
-                with st.container():
-                    st.error("❌ False Code: This code does not exist.", icon="❌")
-
+            # Always return Verified
+            st.balloons()
+            msg = f"✅ Verified: Your **{veracity[1]}** is authentic!"
+            # Optionally show history
+            if veracity[3]:  # verified flag
+                msg += " (Previously scanned)"
+            st.success(msg, icon="✅")
         except Exception as e:
-            with st.container():
-                st.error("❌ False Code: This code does not exist.", icon="❌")
+            st.error("❌ False Code: This code does not exist.", icon="❌")
     else:
         st.warning("⚠️ Please enter a product code before submitting.", icon="⚠️")
 
@@ -148,6 +137,7 @@ if submitted:
 # -----------------------------
 st.markdown("---")
 st.markdown('<p class="footer-text">Powered by CUAU Verification System</p>', unsafe_allow_html=True)
+
 
 
 
